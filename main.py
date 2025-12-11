@@ -13,12 +13,32 @@ def hash_id(x):
 
 
 def categorize_risk(prob):
-    if prob >= 0.60:
+    """
+    Simple banding for synthetic data:
+    - High: top-ish probabilities
+    - Medium: middle band
+    - Low: lower probabilities
+    """
+    if prob >= 0.17:
         return "High"
-    elif prob >= 0.35:
+    elif prob >= 0.14:
         return "Medium"
     else:
         return "Low"
+
+# Dynamic cut points based on the distribution
+high_cut = df["prediction_prob"].quantile(0.75)   # top 25% = High
+med_cut = df["prediction_prob"].quantile(0.40)    # next ~35% = Medium
+
+def categorize_risk_dynamic(prob, med=med_cut, high=high_cut):
+    if prob >= high:
+        return "High"
+    elif prob >= med:
+        return "Medium"
+    else:
+        return "Low"
+
+df["risk_flag"] = df["prediction_prob"].apply(categorize_risk_dynamic)
 
 
 def adverse_impact_ratio(group_pos, ref_pos):
