@@ -1,13 +1,17 @@
-# Turnover-Prediction-Dashboard
-AI-enabled predictive turnover dashboard for IOP 563 Milestone 3
 # AI-Enabled Predictive Turnover Dashboard (MVP)
 
-This is a course project for IOP 563 — AI in I-O Psychology.
+This repository contains a small, working prototype of an AI-enabled predictive turnover dashboard
+for **IOP 563 — AI in I-O Psychology (Milestone 3)**.
 
-## How to run locally
+The app is built with **Streamlit + Python** and uses **synthetic data** to simulate a mid-sized
+hospitality organization (hotels, food & beverage, spa).
 
-1. Clone this repo
-2. Install dependencies:
+## How to Run Locally
+
+1. Clone this repo.
+2. Create a virtual environment (optional but recommended).
+3. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
 streamlit run main.py
