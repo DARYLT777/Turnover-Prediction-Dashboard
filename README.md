@@ -10,3 +10,4 @@ This is a course project for IOP 563 — AI in I-O Psychology.
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
+streamlit run main.py
